@@ -134,11 +134,6 @@ credenziali/URL. Durante lo sviluppo e nei test:
   ritocco all'interfaccia, non serve avviare l'app né fare screenshot per
   controllare il risultato: l'utente verifica di persona. Limitarsi a
   `dotnet build -c Release` + `dotnet test` puliti (0 warning, 0 errori).
-- Il progetto **non è un repo git** attualmente; `.gitignore` è già pronto.
 - Le impostazioni dell'app sono in `~/.config/AppConfigEditor/settings.json`
   (Windows: `%APPDATA%\AppConfigEditor\settings.json`).
-- Verifica grafica rapida su KDE Wayland: `spectacle -b -n -f -o /tmp/opencode/shot.png`
-  mentre l'app è in esecuzione (display `:1`).
-- Dopo un cambio/aggiornamento di SDK, se restano errori `NETSDK1045` o build
-  incoerenti, esegui `dotnet build-server shutdown` per eliminare i nodi
-  MSBuild/VBCSCompiler stale, poi riavvia l'IDE.
+
