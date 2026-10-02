@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Application
+Version=1.0
+Name=AppConfig Editor
+Comment=Modifica in blocco i file AppSettings.config dei tenant
+Exec=AppConfigEditor.App
+Icon=appconfigeditor
+Terminal=false
+Categories=Development;
+Keywords=AppSettings;config;tenant;
+StartupNotify=true
+StartupWMClass=AppConfigEditor.App

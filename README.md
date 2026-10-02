@@ -63,6 +63,23 @@ dotnet publish src/AppConfigEditor.App -c Release -r linux-x64 --self-contained 
   -p:PublishSingleFile=true
 ```
 
+### Integrazione desktop (Linux)
+
+Il binario pubblicato ha già l'icona di finestra/taskbar. Per farlo comparire nel
+**menu applicazioni** con la sua icona serve una voce `.desktop` e i PNG nel tema
+hicolor: lo script `packaging/linux/install.sh` li installa per l'utente corrente.
+
+```bash
+# copia il binario in ~/.local/bin e registra icona + voce di menu
+packaging/linux/install.sh publish/AppConfigEditor.App
+
+# oppure, se l'eseguibile è già nel PATH:
+packaging/linux/install.sh
+```
+
+Lo script scrive in `~/.local/share/icons/hicolor/*/apps/appconfigeditor.png` e in
+`~/.local/share/applications/AppConfigEditor.desktop`.
+
 ## Struttura
 
 ```
@@ -80,6 +97,8 @@ src/
     Styles/AppTheme.axaml    palette scura + accento viola
 tests/
   AppConfigEditor.Core.Tests/
+packaging/
+  linux/                   icona + voce .desktop per il menu applicazioni
 ```
 
 ## Flusso tipico
