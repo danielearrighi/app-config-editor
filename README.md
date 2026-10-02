@@ -53,15 +53,29 @@ La cartella base viene scelta con il pulsante **Sfoglia** e salvata in
 
 ## Publish (eseguibili autonomi)
 
+Lo script `packaging/release.sh` automatizza l'intera procedura: build Release,
+test, publish self-contained single-file **senza simboli di debug** per
+`linux-x64` e `win-x64`, e archivi `dist/AppConfigEditor-<rid>.zip` con i file
+nella radice (l'eseguibile Linux conserva il bit di esecuzione).
+
+```bash
+./packaging/release.sh
+```
+
+I passi manuali equivalenti:
+
 ```bash
 # Windows (da eseguire su/ per Windows)
 dotnet publish src/AppConfigEditor.App -c Release -r win-x64 --self-contained \
-  -p:PublishSingleFile=true
+  -p:PublishSingleFile=true -p:DebugType=none
 
 # Linux
 dotnet publish src/AppConfigEditor.App -c Release -r linux-x64 --self-contained \
-  -p:PublishSingleFile=true
+  -p:PublishSingleFile=true -p:DebugType=none
 ```
+
+Per distribuire va copiata l'intera cartella `publish/`: le librerie native
+(SkiaSharp/HarfBuzz) non vengono inglobate nel bundle single-file.
 
 ### Integrazione desktop (Linux)
 
@@ -98,6 +112,7 @@ src/
 tests/
   AppConfigEditor.Core.Tests/
 packaging/
+  release.sh               build + test + publish e zip per Linux/Windows
   linux/                   icona + voce .desktop per il menu applicazioni
 ```
 
