@@ -1,0 +1,9 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/AppConfigEditor.App/AppConfigEditor.App.csproj" />
+    <Project Path="src/AppConfigEditor.Core/AppConfigEditor.Core.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/AppConfigEditor.Core.Tests/AppConfigEditor.Core.Tests.csproj" />
+  </Folder>
+</Solution>

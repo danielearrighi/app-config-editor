@@ -1,0 +1,18 @@
+# Build
+bin/
+obj/
+
+# Publish
+publish/
+
+# Backup generati dall'app sui file di configurazione
+*.bak
+
+# IDE
+.vs/
+.vscode/
+.idea/
+*.user
+
+#FILE CONFIGS
+Configs/
